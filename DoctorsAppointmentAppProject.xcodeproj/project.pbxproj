@@ -48,11 +48,6 @@
 			path = DoctorsAppointmentAppProject;
 			sourceTree = "<group>";
 		};
-		9932D5A82E7E029900DEB6D6 /* DoctorsAppointmentAppProjectTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = DoctorsAppointmentAppProjectTests;
-			sourceTree = "<group>";
-		};
 		9932D5B22E7E029900DEB6D6 /* DoctorsAppointmentAppProjectUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = DoctorsAppointmentAppProjectUITests;
@@ -89,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				9932D5912E7E029700DEB6D6 /* DoctorsAppointmentAppProject */,
-				9932D5A82E7E029900DEB6D6 /* DoctorsAppointmentAppProjectTests */,
 				9932D5B22E7E029900DEB6D6 /* DoctorsAppointmentAppProjectUITests */,
 				9932D5902E7E029700DEB6D6 /* Products */,
 			);
@@ -142,9 +136,6 @@
 			);
 			dependencies = (
 				9932D5A72E7E029900DEB6D6 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				9932D5A82E7E029900DEB6D6 /* DoctorsAppointmentAppProjectTests */,
 			);
 			name = DoctorsAppointmentAppProjectTests;
 			packageProductDependencies = (
