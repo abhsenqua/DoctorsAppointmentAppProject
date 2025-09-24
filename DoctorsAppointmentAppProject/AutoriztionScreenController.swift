@@ -49,7 +49,7 @@ class AutoriztionScreenController: UIViewController {
     }
     
     private func setEmailTextView() {
-        let emailStack = build.getTextView(textField: emailTextField, placeholder: "Email Adress")
+        let emailStack = build.getTextView(textField: emailTextField, placeholder: "Email Address")
         contentView.addSubview(emailStack)
         
         NSLayoutConstraint.activate([
