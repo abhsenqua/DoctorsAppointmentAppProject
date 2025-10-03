@@ -13,6 +13,20 @@ class ViewBuilder {
         
     }
     
+    lazy var signInBtn: UIButton = {
+        let btn = UIButton(primaryAction: UIAction(handler: { _ in
+            
+            
+        }))
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        btn.backgroundColor = .appСyan
+        btn.layer.cornerRadius = 15
+        btn.setTitle("Log in", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        return btn
+    }()
+    
     lazy var bannerImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +45,26 @@ class ViewBuilder {
     }()
     
     func getTextView(textField: UITextField, placeholder: String, isPassword: Bool = false) -> UIStackView {
-        var placeholderText: UIView {
+        lazy var hidePassword: UIButton = {
+            let btn = UIButton(primaryAction: action)
+            btn.setImage(UIImage(systemName: "eye"), for: .normal)
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            btn.tintColor = .black
+            
+            return btn
+        }()
+        
+        lazy var action = UIAction { _ in
+            textField.isSecureTextEntry.toggle()
+            
+            if textField.isSecureTextEntry {
+                hidePassword.setImage(UIImage(systemName: "eye"), for: .normal)
+            } else {
+                hidePassword.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            }
+        }
+        
+        lazy var placeholderText: UIView = {
             let text = UILabel()
             text.translatesAutoresizingMaskIntoConstraints = false
             text.text = placeholder
@@ -44,12 +77,13 @@ class ViewBuilder {
             view.heightAnchor.constraint(equalToConstant: 15).isActive = true
             text.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 19).isActive = true
             return view
-        }
+        }()
         
        lazy var fieldView : UIView = {
            let view = UIView()
            textField.translatesAutoresizingMaskIntoConstraints = false
            view.translatesAutoresizingMaskIntoConstraints = false
+           textField.isSecureTextEntry = isPassword
            view.addSubview(textField)
            view.backgroundColor = .appSnow
            view.layer.cornerRadius = 15
@@ -61,7 +95,12 @@ class ViewBuilder {
             textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
            ])
-            
+           
+           if isPassword {
+               view.addSubview(hidePassword)
+               hidePassword.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+               hidePassword.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+           }
             return view
         }()
         
@@ -70,14 +109,10 @@ class ViewBuilder {
             stack.axis = .vertical
             stack.spacing = 7
             stack.translatesAutoresizingMaskIntoConstraints = false
-            
             stack.addArrangedSubview(placeholderText)
             stack.addArrangedSubview(fieldView)
-            
             return stack
-            
         }()
-        
         return hStack
     }
 }
