@@ -19,8 +19,9 @@ class ViewBuilder {
             
         }))
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        btn.backgroundColor = .appСyan
+        btn.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        btn.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        btn.backgroundColor = .appYellow
         btn.layer.cornerRadius = 15
         btn.setTitle("Log in", for: .normal)
         btn.setTitleColor(.black, for: .normal)

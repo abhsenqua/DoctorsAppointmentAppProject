@@ -29,8 +29,8 @@ class AutoriztionScreenController: UIViewController {
         signInBtn = build.signInBtn
         view.addSubview(signInBtn)
         NSLayoutConstraint.activate([
-            signInBtn.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20),
-            signInBtn.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor, constant: 20),
+            signInBtn.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40),
+            signInBtn.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor, constant: 100),
             signInBtn.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor)
                                                   ])
     }
